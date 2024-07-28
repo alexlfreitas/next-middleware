@@ -1,15 +1,19 @@
-export default async function TestPage() {
-  const routeApi = 'https://api.adviceslip.com/advice'
+import Link from 'next/link'
 
-  const response = await fetch(routeApi, {
-    cache: 'no-store',
-  })
-  const data = await response.json()
-
+export default function Page() {
   return (
     <div>
-      <strong>API Test</strong>
-      <pre className="mt-2">{JSON.stringify(data, null, 2)}</pre>
+      <ul>
+        <li className="list-disc">
+          <Link href={'/api'}>api</Link>
+        </li>
+        <li className="list-disc">
+          <Link href={'/api-error'}>api-error</Link>
+        </li>
+        <li className="list-disc">
+          <Link href={'/teste'}>teste</Link>
+        </li>
+      </ul>
     </div>
   )
 }
