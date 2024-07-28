@@ -1,5 +1,7 @@
 export default async function TestPage() {
-  const response = await fetch('https://api.adviceslip.com/advice', {
+  const routeApi = 'https://api.adviceslip.com/advice'
+
+  const response = await fetch(routeApi, {
     cache: 'no-store',
   })
   const data = await response.json()
@@ -7,7 +9,7 @@ export default async function TestPage() {
   return (
     <div>
       <strong>API Test</strong>
-      <p className="mt-2">{data?.slip?.advice}</p>
+      <pre className="mt-2">{JSON.stringify(data, null, 2)}</pre>
     </div>
   )
 }

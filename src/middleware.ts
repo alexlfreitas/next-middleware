@@ -9,7 +9,7 @@ export async function middleware(req: NextRequest) {
       body: req.body,
     })
 
-    console.log('Status Code >>>', response.status)
+    console.log(req.nextUrl.href, 'Status Code >>>', response.status)
   } catch (error) {
     console.error(error)
   }
